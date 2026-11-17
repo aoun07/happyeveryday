@@ -1,7 +1,8 @@
-export default function Home() {
+export default function AdminOrderPage() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-zinc-900 text-white">
-      <h1 className="text-4xl font-bold">Hello Admin</h1>
-    </main>
+    <div style={{ padding: '40px', fontFamily: 'Arial, sans-serif', color: '#fff', background: '#1a1a1a', minHeight: '100vh' }}>
+      <h1>📦 จัดการออเดอร์หลังบ้าน (Admin Order)</h1>
+      <p style={{ marginTop: '10px', color: '#aaa' }}>ยินดีต้อนรับเข้าสู่ระบบจัดการหลังบ้านที่ปลอดภัยครับ!</p>
+    </div>
   );
 }
