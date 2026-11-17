@@ -4,7 +4,9 @@ import type { NextRequest } from 'next/server';
 export async function POST(request: NextRequest) {
   try {
     const { password } = await request.json();
-    const correctPassword = process.env.APP_PASSWORD || '1234';
+    
+    // บังคับอ่านจาก .env.local เท่านั้น ไม่มีรหัสสำรอง
+    const correctPassword = process.env.APP_PASSWORD;
 
     if (password === correctPassword) {
       const response = NextResponse.json({ success: true });
