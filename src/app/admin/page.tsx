@@ -15,8 +15,8 @@ export default function AdminLoginPage() {
     setLoading(true);
     
     // ดึงรหัสผ่านจาก Environment Variable
-    const adminPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || 'your-password';
-
+    const adminPassword = process.env.NEXT_PUBLIC_APP_PASSWORD || 'your-password';
+    console.log(process.env.NEXT_PUBLIC_APP_PASSWORD)
     // เช็ครหัสผ่าน
     if (password === adminPassword) {
       router.push('/admin/order');
