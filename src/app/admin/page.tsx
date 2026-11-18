@@ -2,8 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import  './page.module.css';
-
+import styles from './page.module.css';
 
 export default function AdminLoginPage() {
   const [password, setPassword] = useState('');
@@ -15,8 +14,11 @@ export default function AdminLoginPage() {
     e.preventDefault();
     setLoading(true);
     
-    // จำลองระบบ Login
-    if (password === 'your-password') {
+    // ดึงรหัสผ่านจาก Environment Variable
+    const adminPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || 'your-password';
+
+    // เช็ครหัสผ่าน
+    if (password === adminPassword) {
       router.push('/admin/order');
       router.refresh();
     } else {
@@ -26,22 +28,23 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="container">
-      <form onSubmit={handleLogin} className="form">
-        <div className="logoContainer">
-          <img src="/logored.png" className='LogoImage' />
+    <div className='container'>
+      <form onSubmit={handleLogin} className='form'>
+        <div className={styles.logoContainer}>
+          <img src="/logored.png" alt="Happyeveryday Logo" className='logoImage' />
         </div>
+        
         <input
           type="password"
-          placeholder="รหัสผ่าน..."
+          placeholder="รหัสผ่านเข้าสู่ระบบ..."
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="input"
+          className='input'
         />
 
-        {error && <p className="error">รหัสผ่านไม่ถูกต้อง</p>}
+        {error && <p className='error'>รหัสผ่านไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</p>}
 
-        <button type="submit" className="button" disabled={loading}>
+        <button type="submit" className='button' disabled={loading}>
           {loading ? 'กำลังเข้าสู่ระบบ...' : 'เข้าสู่ระบบ'}
         </button>
       </form>
