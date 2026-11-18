@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7d1cd;
+  --foreground: #FFFBFA;
 }
 
-@theme inline {
+/* @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
+} */
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #e6e6ea;
     --foreground: #ededed;
   }
 }
@@ -23,4 +23,20 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.happyContainer{
+  max-width: 900px;      /* กำหนดความกว้างสูงสุดของกล่องไม่ให้กว้างเกินไป */
+  width: 100%;           /* ให้ปรับขนาดตามหน้าจอ */
+  margin: 0 auto;     /* ดันให้กล่องอยู่ตรงกลางแนวนอน (ซ้าย-ขวาเป็น auto) */
+  padding: 5px 24px;
+  background-color: #f4f4f8; /* หรือสีพื้นหลังตามต้องการ */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: #444;
+}
+
+.happyContainer> .logo{
+  width: 200px;
+  margin: 0 auto; 
 }

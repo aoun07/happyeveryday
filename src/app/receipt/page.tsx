@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 
 export default function ReceiptPage() {
-  useEffect(() => {
+  useState(() => {
     // URL สำหรับดึงข้อมูล Google Apps Script
     const apiUrl = 'https://script.google.com/macros/s/AKfycbyMcRJyzrLkL-be90XAMTuYEEsIyq0pkMDKvg-H9yURjPrlyLBYVAnn_sHiJ4wiHmO1IA/exec';
 
@@ -17,6 +17,8 @@ export default function ReceiptPage() {
         if (!tbody) return;
         tbody.innerHTML = '';
         let total = 0;
+      
+        console.log(data);
 
         if (data.items && Array.isArray(data.items)) {
           data.items.forEach((d: any) => {
@@ -45,7 +47,7 @@ export default function ReceiptPage() {
       .catch(error => {
         console.error('เกิดข้อผิดพลาดในการดึงข้อมูล:', error);
       });
-  }, []);
+  });
 
   return (
     <div style={{ backgroundColor: '#ffffff', minHeight: '100vh', padding: '10px' }}>
