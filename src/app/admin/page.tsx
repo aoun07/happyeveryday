@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import styles from './page.module.css';
+import  './page.module.css';
+
 
 export default function AdminLoginPage() {
   const [password, setPassword] = useState('');
@@ -25,26 +26,25 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className={styles.container ?? 'fallback-container'}>
-      <form onSubmit={handleLogin} className={styles.form}>
-        <img src="/logored.png" alt="logo" className={styles.logo} />
-        <h2 className={styles.logo}>Happyeverydays login</h2>
-        
+    <div className="container">
+      <form onSubmit={handleLogin} className="form">
+        <div className="logoContainer">
+          <img src="/logored.png" className='LogoImage' />
+        </div>
         <input
           type="password"
           placeholder="รหัสผ่าน..."
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className={styles.input}
+          className="input"
         />
 
-        {error && <p className={styles.error}>รหัสผ่านไม่ถูกต้อง</p>}
+        {error && <p className="error">รหัสผ่านไม่ถูกต้อง</p>}
 
-        <button type="submit" className={styles.button} disabled={loading}>
+        <button type="submit" className="button" disabled={loading}>
           {loading ? 'กำลังเข้าสู่ระบบ...' : 'เข้าสู่ระบบ'}
         </button>
       </form>
     </div>
   );
-
 }
