@@ -48,11 +48,10 @@ export default function CheckPricePage() {
             {/* เฮดเดอร์บอกชื่อหน้า */}
             <h1
                 style={{
-                textAlign: 'center',
+                textAlign: 'left',
                 fontSize: '22px',
                 fontWeight: 700,
                 marginTop: '10px',
-                marginBottom: '18px',
                 color: '#1e293b',
                 }}
             >
