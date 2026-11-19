@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import "./page.module.css";
+import "./page.css";
 
 export default function OrderPage() {
 
