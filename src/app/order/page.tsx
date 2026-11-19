@@ -442,19 +442,19 @@ export default function OrderPage() {
                                 <div style={{ width: "50%", height: "68px" }}>
                                     <img src="/logored.png" alt="Logo" style={{ width: "170px", position: "absolute", top: "3px" }} />
                                 </div>
-                                <div style={{ paddingLeft: "60px", position: "absolute", left: "150px", top: "5px" }}>
+                                <div style={{ paddingLeft: "60px", position: "absolute", left: "170px", top: "5px" }}>
                                     <img src="/zelle.png" alt="Zelle" style={{ width: "100px", filter: "grayscale(100%) opacity(85%)" }} />
                                 </div>
                             </div>
                             
                             <div style={{ borderBottom: "1px dashed #aaaaaa", paddingBottom: "8px", width: "80mm" }}>
-                                <div style={{ width: "225px", fontWeight: "bold", fontSize: "14px", color: "#222222" }}>{selectedCustommer}</div>
+                                <div style={{ width: "225px", fontWeight: "bold", fontSize: "16px", color: "#222222" }}>{selectedCustommer}</div>
                                 <div style={{ fontSize: "12px", color: "#666666" }}>
                                     วันที่: <span>{new Date().toLocaleDateString()}</span>
                                 </div>
                             </div>
                             
-                            <table style={{ width: "80mm", borderCollapse: "collapse", fontSize: "12px", marginTop: "5px" }}>
+                            <table style={{ width: "80mm", borderCollapse: "collapse", fontSize: "14px", marginTop: "5px" }}>
                                 <thead>
                                     <tr>
                                         <th style={{ borderBottom: "1px dashed #aaaaaa", textAlign: "left", padding: "5px 0", color: "#444444", fontWeight: "600" }}>รายการ</th>
