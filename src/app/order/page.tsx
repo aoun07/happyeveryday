@@ -418,22 +418,24 @@ export default function OrderPage() {
 
             {/* --- MODAL POPUP ใบเสร็จ (อยู่ภายใน happyContainer เรียบร้อย) --- */}
             {isReceiptOpen && (
-                <div className={styles.receiptModalOverlay || "receipt-modal-overlay"} style={{
-                    position: "fixed",
-                    top: 0, left: 0, right: 0, bottom: 0,
-                    backgroundColor: "rgba(0, 0, 0, 0.6)",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    zIndex: 9999
+                <div className= "receipt-modal-overlay" 
+                    style={{
+                        position: "fixed",
+                        top: 0, left: 0, right: 0, bottom: 0,
+                        backgroundColor: "rgba(0, 0, 0, 0.6)",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        zIndex: 9999
                 }}>
-                    <div className={styles.receiptPaper || "receipt-paper"} style={{
-                        backgroundColor: "#ffffff",
-                        padding: "15px",
-                        borderRadius: "8px",
-                        boxShadow: "0 10px 25px rgba(0,0,0,0.3)",
-                        maxHeight: "90vh",
-                        overflowY: "auto"
+                    <div className="receipt-paper" 
+                        style={{
+                            backgroundColor: "#ffffff",
+                            padding: "15px",
+                            borderRadius: "8px",
+                            boxShadow: "0 10px 25px rgba(0,0,0,0.3)",
+                            maxHeight: "90vh",
+                            overflowY: "auto"
                     }}>
                         <div className="receipt-printable">
                             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0px", paddingBottom: "5px", position: "relative", width: "80mm" }}>
