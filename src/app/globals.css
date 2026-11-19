@@ -28,8 +28,8 @@ body {
 .happyContainer{
   max-width: 900px;      /* กำหนดความกว้างสูงสุดของกล่องไม่ให้กว้างเกินไป */
   width: 100%;           /* ให้ปรับขนาดตามหน้าจอ */
-  margin: 0 auto;     /* ดันให้กล่องอยู่ตรงกลางแนวนอน (ซ้าย-ขวาเป็น auto) */
-  padding: 5px 24px;
+  margin: 36px auto;     
+  padding: 36px 24px;
   background-color: #f4f4f8; /* หรือสีพื้นหลังตามต้องการ */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -39,4 +39,7 @@ body {
 .happyContainer> .logo{
   width: 200px;
   margin: 0 auto; 
+  margin-top: '20px';
+  padding-bottom:"20px";
+  
 }

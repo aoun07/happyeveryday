@@ -1,10 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import styles from "./page.module.css";
+import { useRouter } from 'next/navigation';
+import "./page.module.css";
 
 export default function OrderPage() {
 
+    const router = useRouter();
     interface DataItem { id: number; name: string; sellingPrice: number;}
     interface DataCustommer{ id: number; name: string;}
 
@@ -76,7 +78,11 @@ export default function OrderPage() {
 
     return (
         <div className="happyContainer">
-            <img className='logo' src="/logored.png" alt="" />
+            <img className='logo' src="/logored.png" alt=""
+            onClick={() => {
+                    router.push('/');
+                }}
+                />
             
             {/* --- ส่วนของ Textbox และ Dropdown ค้นหา (ลูกค้า) --- */}
             <div style={{ position: "relative", marginBottom: "20px", marginTop: "15px", width: "70%", float: "left"}}>
@@ -343,13 +349,13 @@ export default function OrderPage() {
             <div style={{ clear: "both" }}></div>
 
             {/* --- ส่วนแสดงตารางรายการสินค้าในตะกร้า --- */}
-            <div style={{ marginTop: "20px", width: "100%", float: "left" }}>
+            <div style={{ marginTop: "20px", width: "100%"}}>
                 <h3>รายการสินค้าที่เลือก ({selectedItems.length})</h3>
                 
                 <table style={{ width: "100%", borderCollapse: "collapse", marginTop: "10px", backgroundColor: "#fff", borderRadius: "8px", overflow: "hidden", boxShadow: "0 2px 4px rgba(0,0,0,0.05)" }}>
                     <thead>
                         <tr style={{ backgroundColor: "#f8f9fa", borderBottom: "1px solid #dee2e6", textAlign: "left" }}>
-                            <th style={{ padding: "12px 16px", textAlign: "center", width: "60px" }}>ลบ</th>
+                            <th style={{ padding: "12px 16px", textAlign: "center", width: "60px" }}></th>
                             <th style={{ padding: "12px 16px" }}>ชื่อสินค้า</th>
                             <th style={{ padding: "12px 16px", textAlign: "right" }}>ราคาต่อหน่วย</th>
                             <th style={{ padding: "12px 16px", textAlign: "right" }}>จำนวน</th>
