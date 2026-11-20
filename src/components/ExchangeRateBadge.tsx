@@ -50,7 +50,7 @@ export default function ExchangeRateBadge({ onRateChange }: ExchangeRateBadgePro
   }
 
   return (
-    <div className="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-sm shadow-sm">
+    <div className="inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm ">
       <span className="text-gray-500">อัตราแลกเปลี่ยน:</span>
       <span className="font-semibold text-emerald-600">
         1 USD = {rate.toFixed(2)} THB
