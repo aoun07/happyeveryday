@@ -114,7 +114,7 @@ export default function CheckPricePage() {
                 }}
                 >
                 <div style={{ fontSize: '13px', color: '#1d4ed8', marginBottom: '6px' }}>
-                    ต้นทุน + กำไร 150%
+                    ต้นทุน + กำไร 50%
                 </div>
                 <div style={{ fontSize: '22px', fontWeight: 700, color: '#1e3a8a' }}>
                     ${(usCost * 1.5).toFixed(2)}
@@ -131,7 +131,7 @@ export default function CheckPricePage() {
                 }}
                 >
                 <div style={{ fontSize: '13px', color: '#15803d', marginBottom: '6px' }}>
-                    ต้นทุน + กำไร 200%
+                    ต้นทุน + กำไร 100%
                 </div>
                 <div style={{ fontSize: '22px', fontWeight: 700, color: '#14532d' }}>
                     ${(usCost * 2).toFixed(2)}
