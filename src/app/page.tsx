@@ -26,7 +26,7 @@ export default function Home() {
         }}
       >
         <Link
-          href="/checkprice"
+          href="/checkpriceth"
           style={{
             display: 'inline-flex',
             alignItems: 'center',
