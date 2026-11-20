@@ -104,7 +104,7 @@ export default function CheckPricePageTh() {
                 }}
                 >
                 <div style={{ fontSize: '13px', color: '#64748b', marginBottom: '6px' }}>
-                    ต้นทุนจริง (คำนวณแล้ว)
+                    ต้นทุนจริง + ค่าส่ง
                 </div>
                 <div style={{ fontSize: '22px', fontWeight: 700, color: '#0f172a' }}>
                     ${usCost.toFixed(2)}
@@ -121,7 +121,7 @@ export default function CheckPricePageTh() {
                 }}
                 >
                 <div style={{ fontSize: '13px', color: '#1d4ed8', marginBottom: '6px' }}>
-                    ต้นทุน + กำไร 50%
+                    ต้นทุนจริง + ค่าส่ง + กำไร 50%
                 </div>
                 <div style={{ fontSize: '22px', fontWeight: 700, color: '#1e3a8a' }}>
                     ${(usCost * 1.5).toFixed(2)}
@@ -138,7 +138,7 @@ export default function CheckPricePageTh() {
                 }}
                 >
                 <div style={{ fontSize: '13px', color: '#15803d', marginBottom: '6px' }}>
-                    ต้นทุน + กำไร 100%
+                    ต้นทุนจริง + ค่าส่ง + กำไร 100%
                 </div>
                 <div style={{ fontSize: '22px', fontWeight: 700, color: '#14532d' }}>
                     ${(usCost * 2).toFixed(2)}
