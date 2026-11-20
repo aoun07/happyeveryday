@@ -440,7 +440,7 @@ export default function OrderPage() {
                         <div className="receipt-printable">
                             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0px", paddingBottom: "5px", position: "relative", width: "80mm" }}>
                                 <div style={{ width: "50%", height: "68px" }}>
-                                    <img src="/logored.png" alt="Logo" style={{ width: "170px", position: "absolute", top: "3px" }} />
+                                    <img src="/logored.png" alt="Logo" style={{ width: "170px", position: "absolute", top: "10px" }} />
                                 </div>
                                 <div style={{ paddingLeft: "60px", position: "absolute", left: "170px", top: "5px" }}>
                                     <img src="/zelle.png" alt="Zelle" style={{ width: "100px", filter: "grayscale(100%) opacity(85%)" }} />

@@ -147,7 +147,7 @@
         position: static !important;
         height: auto !important;
         width: 100% !important;
-        padding-top: 4px !important;
+        padding-top: 15px !important;
     }
 
     .receipt-printable > div:first-child > div:first-child {
@@ -179,7 +179,7 @@
         max-width: 100% !important;
         height: auto !important;
         display: block !important;
-        padding-top: 5px !important;
+        /* padding-top: 10px !important; */
     }
 
     /* ขยายคิวอาร์โค้ดใหญ่ขึ้นอีกนิดและชิดขวาสุด */
@@ -214,6 +214,13 @@
     .receipt-printable td:nth-child(2) {
         width: 18% !important;
         text-align: center !important;
+    }
+
+    /* กันกล่องชื่อลูกค้าไม่ให้ยาวไปถึงรูป Zelle แล้วขึ้นบรรทัดใหม่ */
+    .receipt-printable > div:nth-child(2) {
+        max-width: calc(100% - 65px) !important;
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
     }
 
     .receipt-printable th:nth-child(3),
