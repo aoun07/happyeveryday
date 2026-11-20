@@ -89,7 +89,7 @@ export default function CheckPricePageTh() {
             <div
                 style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
                 gap: '12px',
                 marginTop: '12px',
                 }}
