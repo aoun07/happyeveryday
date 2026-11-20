@@ -63,6 +63,7 @@ export default function CheckPricePageTh() {
             </h1>
 
             <ExchangeRateBadge />
+            <div style={{ clear: 'both' }}></div>
 
             {/* แถวช่องกรอกข้อมูล 2 ช่อง */}
             <input

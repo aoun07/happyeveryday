@@ -67,6 +67,7 @@ export default function CheckPricePageUS() {
             </h1>
 
             <ExchangeRateBadge onRateChange={handleRateChange} />
+            <div style={{ clear: 'both' }}></div>
 
             {/* แถวช่องกรอกข้อมูล 2 ช่อง */}
             <input
