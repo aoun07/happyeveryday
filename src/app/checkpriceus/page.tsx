@@ -1,15 +1,22 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import './page.css';
+import ExchangeRateBadge from '@/components/ExchangeRateBadge';
+import RegionModeTabs from '@/components/RegionModeTabs'
 
-export default function CheckPricePage() {
+export default function CheckPricePageUS() {
   
     const router = useRouter();
     const [itemPrice, setItemPrice] = useState("");
     const [itemWeight, setItemWeight] = useState("");
     const [usCost, setUsCost] = useState(0);
+
+    const [exchangeRate, setExchangeRate] = useState<number | null>(null);
+    const handleRateChange = useCallback((rate: number | null) => {
+        setExchangeRate(rate);
+    }, []);
 
     useEffect(() => {
         const priceText = String(itemPrice ?? '').trim();
@@ -31,11 +38,12 @@ export default function CheckPricePage() {
             return;
         }
 
-        // 3. คำนวณต้นทุนจริง (USD)
-        setUsCost((priceNum / 32) + ((weightNum / 1000) * 17));
-    }, [itemPrice, itemWeight]);
+        const effectiveRate = exchangeRate ?? 32; // ใช้เรทสำรอง 32 หาก exchangeRate เป็น null
+        setUsCost((priceNum * effectiveRate) + ((weightNum / 1000) * 20 * effectiveRate));
+    }, [itemPrice, itemWeight, exchangeRate]);
 
-
+    
+    
 
     return (
         <div className="happyContainer" style={{}}>
@@ -57,11 +65,13 @@ export default function CheckPricePage() {
             >
                 คำนวณราคาขาย
             </h1>
+
+            <ExchangeRateBadge onRateChange={handleRateChange} />
+
             {/* แถวช่องกรอกข้อมูล 2 ช่อง */}
-        
             <input
                 type="text"
-                placeholder="ราคาต้นทุนไทย..."
+                placeholder="ราคาต้นทุนอเมริกา..."
                 className="txtcheckprice"
                 value={itemPrice}
                 onChange={(e) => setItemPrice(e.target.value)}
@@ -100,7 +110,7 @@ export default function CheckPricePage() {
                     ต้นทุนจริง (คำนวณแล้ว)
                 </div>
                 <div style={{ fontSize: '22px', fontWeight: 700, color: '#0f172a' }}>
-                    ${usCost.toFixed(2)}
+                    ฿{usCost.toFixed(2)}
                 </div>
                 </div>
 
@@ -117,7 +127,7 @@ export default function CheckPricePage() {
                     ต้นทุน + กำไร 50%
                 </div>
                 <div style={{ fontSize: '22px', fontWeight: 700, color: '#1e3a8a' }}>
-                    ${(usCost * 1.5).toFixed(2)}
+                    ฿{(usCost * 1.5).toFixed(2)}
                 </div>
                 </div>
 
@@ -134,10 +144,11 @@ export default function CheckPricePage() {
                     ต้นทุน + กำไร 100%
                 </div>
                 <div style={{ fontSize: '22px', fontWeight: 700, color: '#14532d' }}>
-                    ${(usCost * 2).toFixed(2)}
+                    ฿{(usCost * 2).toFixed(2)}
                 </div>
                 </div>
             </div>
+            <RegionModeTabs/>
         </div>
     );
 }

@@ -1,0 +1,42 @@
+.happy-mode-tabs {
+    position: absolute;
+    left: 24px;
+    bottom: -37px; /* ห้อยลงมาจากขอบล่างของ happyContainer */
+    display: inline-flex;
+    align-items: stretch;
+    border: 1px solid #cbd5e1;
+    border-top: none;
+    border-radius: 0 0 10px 10px; /* มุมโค้งอยู่ด้านล่าง (คว่ำหัวลง) */
+    overflow: hidden;
+    background-color: #f1f5f9;
+    z-index: 2;
+}
+
+.happy-mode-tab {
+    appearance: none;
+    border: none;
+    background-color: #888af7;
+    color: #eeeef0;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 8px 18px;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    width: 75px;
+}
+
+.happy-mode-tab + .happy-mode-tab {
+    border-left: 1px solid #cbd5e1;
+}
+
+.happy-mode-tab:hover:not(.is-active) {
+    background-color: #becee4;
+    color: #334155;
+}
+
+.happy-mode-tab.is-active {
+    background-color: #F4F4F8;
+    color: #0f172a;
+    box-shadow: inset 0 -2px 0 #2563eb; /* เส้นเน้นอยู่ขอบล่างของแท็บ */
+}
