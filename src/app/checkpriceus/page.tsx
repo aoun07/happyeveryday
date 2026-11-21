@@ -39,7 +39,7 @@ export default function CheckPricePageUS() {
         }
 
         const effectiveRate = exchangeRate ?? 32; // ใช้เรทสำรอง 32 หาก exchangeRate เป็น null
-        setUsCost((priceNum * effectiveRate) + ((weightNum / 1000) * 20 * effectiveRate));
+        setUsCost((priceNum + ((weightNum / 1000) * 25 ) + 10 ) * effectiveRate);
     }, [itemPrice, itemWeight, exchangeRate]);
 
     
