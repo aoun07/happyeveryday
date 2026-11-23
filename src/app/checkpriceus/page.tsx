@@ -12,6 +12,9 @@ export default function CheckPricePageUS() {
     const [itemPrice, setItemPrice] = useState("");
     const [itemWeight, setItemWeight] = useState("");
     const [usCost, setUsCost] = useState(0);
+    const [usCost50, setUsCost50] = useState(0);
+    const [usCost100, setUsCost100] = useState(0);
+    const [thDeliveryPrice, setThDeliveryPrice] = useState(50);
 
     const [exchangeRate, setExchangeRate] = useState<number | null>(null);
     const handleRateChange = useCallback((rate: number | null) => {
@@ -39,7 +42,10 @@ export default function CheckPricePageUS() {
         }
 
         const effectiveRate = exchangeRate ?? 32; // ใช้เรทสำรอง 32 หาก exchangeRate เป็น null
-        setUsCost((priceNum + ((weightNum / 1000) * 25 ) + 10 ) * effectiveRate);
+        var cost = ((priceNum + ((weightNum * 25) / 1000 )) * effectiveRate) ;
+        setUsCost(cost + thDeliveryPrice);
+        setUsCost50((cost *1.5) + thDeliveryPrice);
+        setUsCost100((cost *2) + thDeliveryPrice);
     }, [itemPrice, itemWeight, exchangeRate]);
 
     
@@ -128,7 +134,7 @@ export default function CheckPricePageUS() {
                     ต้นทุนจริง + ค่าส่ง + กำไร 50%
                 </div>
                 <div style={{ fontSize: '22px', fontWeight: 700, color: '#1e3a8a' }}>
-                    ฿{(usCost * 1.5).toFixed(2)}
+                    ฿{(usCost50).toFixed(2)}
                 </div>
                 </div>
 
@@ -145,7 +151,7 @@ export default function CheckPricePageUS() {
                     ต้นทุนจริง + ค่าส่ง + กำไร 100%
                 </div>
                 <div style={{ fontSize: '22px', fontWeight: 700, color: '#14532d' }}>
-                    ฿{(usCost * 2).toFixed(2)}
+                    ฿{(usCost100).toFixed(2)}
                 </div>
                 </div>
             </div>
