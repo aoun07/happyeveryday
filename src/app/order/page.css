@@ -1,83 +1,3 @@
-.inputItem {
-    width: 200px;
-    padding: 10px 14px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    color: #333;
-    background-color: #fff;
-}
-
-.receipt-paper {
-    font-family: 'Arial', sans-serif;
-    color: #333333;
-    background-color: #ffffff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-.receipt-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0px;
-    padding-bottom: 5px;
-    position: relative;
-    width: 80mm;
-}
-
-.receipt-logo-container { width: 50%; height: 68px; }
-.receipt-logo-container img { width: 170px; position: absolute; top: 3px; }
-.receipt-date-side { font-size: 12px; color: #666666; }
-.receipt-table { width: 80mm; border-collapse: collapse; font-size: 12px; }
-.receipt-table th {
-    border-bottom: 1px dashed #aaaaaa;
-    text-align: left;
-    padding: 5px 0;
-    color: #444444;
-    font-weight: 600;
-}
-.receipt-table th:nth-child(3), .receipt-table td:nth-child(3) { text-align: right; }
-.receipt-table tbody tr:first-child td { padding-top: 3px; }
-.receipt-table td { padding: 2px 0; color: #333333; }
-.receipt-customer-section {
-    border-bottom: 1px dashed #aaaaaa;
-    padding-bottom: 8px;
-    width: 80mm;
-}
-.receipt-customer-name {
-    width: 225px;
-    font-weight: bold;
-    font-size: 14px;
-    color: #222222;
-}
-.receipt-total {
-    border-top: 1px dashed #aaaaaa;
-    font-weight: bold;
-    font-size: 15px;
-    margin-top: 3px;
-    padding: 8px 0;
-    display: flex;
-    justify-content: space-between;
-    color: #222222;
-    width: 80mm;
-}
-.receipt-zelle { padding-left: 60px; position: absolute; left: 150px; top: 5px; }
-.receipt-zelle img { width: 100px; filter: grayscale(100%) opacity(85%); }
-.receipt-footer {
-    text-align: center;
-    margin-top: 8px;
-    font-style: italic;
-    font-size: 12px;
-    color: #666666;
-    width: 80mm;
-}
-.receipt-item-center { text-align: center; }
-
-/* ตั้งค่าพิเศษสำหรับตอนสั่ง Print ลงกระดาษกว้าง 102mm ยาว A4 (297mm) */
 @media print {
     @page {
         size: 102mm 297mm;
@@ -126,28 +46,31 @@
         box-sizing: border-box !important;
     }
 
+    /* กรอบใบเสร็จทั้งหมด 95mm */
     .receipt-printable {
-        width: 98mm !important;
-        max-width: 98mm !important;
+        position: relative !important;
+        width: 95mm !important;
+        max-width: 95mm !important;
         box-sizing: border-box !important;
     }
 
     .receipt-printable > div,
     .receipt-printable > table {
-        width: 98mm !important;
-        max-width: 98mm !important;
+        width: 95mm !important;
+        max-width: 95mm !important;
         box-sizing: border-box !important;
     }
 
-    /* แถวบน: โลโก้ซ้าย + คิวอาร์โค้ดชิดขวาสุดตรงกับระนาบฝั่งขวา */
+    /* แถวบน: โลโก้ซ้าย ความสูงพอดีโลโก้ เพื่อไม่ให้ดันชื่อลูกค้าลงไปต่ำเกินไป */
     .receipt-printable > div:first-child {
+        position: relative !important;
         display: flex !important;
-        justify-content: space-between !important;
+        justify-content: flex-start !important;
         align-items: center !important;
-        position: static !important;
-        height: auto !important;
-        width: 100% !important;
-        padding-top: 15px !important;
+        width: 95mm !important;
+        min-height: 52px !important;
+        padding-top: 10px !important;
+        padding-right: 126px !important;
     }
 
     .receipt-printable > div:first-child > div:first-child {
@@ -155,9 +78,6 @@
         width: auto !important;
         height: auto !important;
         padding-left: 0 !important;
-        left: auto !important;
-        top: auto !important;
-        flex: 1 1 auto !important;
     }
 
     .receipt-printable > div:first-child > div:last-child {
@@ -165,42 +85,48 @@
         width: auto !important;
         height: auto !important;
         padding-left: 0 !important;
-        left: auto !important;
-        top: auto !important;
-        margin-left: auto !important;
-        flex: 0 0 auto !important;
     }
 
     .receipt-printable img[alt="Logo"] {
         position: static !important;
-        top: auto !important;
-        left: auto !important;
-        width: 138px !important;
+        width: 130px !important;
         max-width: 100% !important;
         height: auto !important;
         display: block !important;
-        /* padding-top: 10px !important; */
     }
 
-    /* ขยายคิวอาร์โค้ดใหญ่ขึ้นอีกนิดและชิดขวาสุด */
+    /* ภาพ QR Code เป็น position: absolute ฝั่งขวาบน ไม่ดันชื่อลูกค้า */
     .receipt-printable img[alt="Zelle"] {
         position: absolute !important;
-        top: 15px !important;
+        top: 10px !important;
+        right: -20px !important;
         left: auto !important;
-        right: -10px !important;
-        /* width: 200px !important; */
+        width: 115px !important;
+        max-width: none !important;
         height: auto !important;
         display: block !important;
-        margin-left: auto !important;
+    }
+
+    /* กล่องชื่อลูกค้า + เส้นประ อยู่ใต้โลโก้ กั้นฝั่งขวาไม่ให้ชน/ลอดใต้ QR Code และเส้นประยาวเต็ม 95mm */
+    .receipt-printable > div:nth-child(2) {
+        position: relative !important;
+        width: 95mm !important;
+        max-width: 95mm !important;
+        margin-top: 4px !important;
+        padding-right: 126px !important;
+        box-sizing: border-box !important;
     }
 
     .receipt-printable > div:nth-child(2) > div:first-child {
         width: 100% !important;
         max-width: 100% !important;
+        overflow-wrap: break-word !important;
         word-break: break-word !important;
     }
 
     .receipt-printable table {
+        width: 95mm !important;
+        max-width: 95mm !important;
         table-layout: fixed !important;
     }
 
@@ -214,13 +140,6 @@
     .receipt-printable td:nth-child(2) {
         width: 18% !important;
         text-align: center !important;
-    }
-
-    /* กันกล่องชื่อลูกค้าไม่ให้ยาวไปถึงรูป Zelle แล้วขึ้นบรรทัดใหม่ */
-    .receipt-printable > div:nth-child(2) {
-        max-width: calc(100% - 65px) !important;
-        overflow-wrap: break-word !important;
-        word-break: break-word !important;
     }
 
     .receipt-printable th:nth-child(3),
